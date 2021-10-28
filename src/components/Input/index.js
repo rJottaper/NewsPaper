@@ -9,7 +9,7 @@ const Input = ({ title, value, newValue, placeholder, name }) => {
       <View style={styles.border} />
       <View style={styles.content}>
         <Icon name={name} style={styles.icon} />
-        <TextInput style={styles.input} value={value} newValue={newValue} placeholder={placeholder} maxLength={30} />
+        <TextInput style={styles.input} value={value} onChangeText={newValue} placeholder={placeholder} maxLength={20} />
       </View>
     </View>
   );
