@@ -2,14 +2,14 @@ import React from 'react';
 import { View, Text, TextInput, StyleSheet } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome'
 
-const Input = ({ title, value, newValue, placeholder, name }) => {
+const Input = ({ title, value, newValue, placeholder, name, secureTextEntry, keyboardType }) => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>{title}</Text>
       <View style={styles.border} />
       <View style={styles.content}>
         <Icon name={name} style={styles.icon} />
-        <TextInput style={styles.input} value={value} onChangeText={newValue} placeholder={placeholder} maxLength={20} />
+        <TextInput style={styles.input} value={value} onChangeText={newValue} placeholder={placeholder} maxLength={20} secureTextEntry={secureTextEntry} keyboardType={keyboardType} />
       </View>
     </View>
   );

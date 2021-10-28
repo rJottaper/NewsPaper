@@ -11,7 +11,11 @@ const { Navigator, Screen } = createStackNavigator();
 
 const StackRoutes = () => {
   return (
-    <Navigator headerMode="none" >
+    <Navigator  
+      screenOptions={{
+        headerShown: false
+      }}
+    >
       <Screen name="Welcome" component={Welcome} />
       <Screen name="Login" component={Login} />
       <Screen name="CreateAccount" component={CreateAccount} />

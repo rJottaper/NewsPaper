@@ -20,8 +20,6 @@ const Home = () => {
     };
   };
 
-  console.log(news);
-
   useEffect(() => {
     APINews();
   }, [])
@@ -41,7 +39,7 @@ const Home = () => {
         <HeaderNavigation title="News" />
         <FlatList 
           data={news}
-          keyExtractor={item => item.id}
+          keyExtractor={(item, index) => 'key' + index}
           renderItem={({ item }) => <Card author={item.author} title={item.title} image={item.urlToImage} content={item.content} />}
         />
       </SafeAreaView>

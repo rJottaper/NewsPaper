@@ -1,5 +1,5 @@
 import React from 'react';
-import { SafeAreaView, View, Text, StyleSheet, Image } from 'react-native';
+import { SafeAreaView, Text, StyleSheet, Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 import HeaderNavigation from '../../components/HeaderNavigation';
@@ -9,7 +9,6 @@ const NewsDetails = ({ route }) => {
   const navigation = useNavigation()
 
   const { author, title, image, content } = route.params
-  console.log(title);
  
   return (
     <SafeAreaView style={styles.container}> 

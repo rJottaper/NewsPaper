@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { SafeAreaView, View, Text, TouchableOpacity, StyleSheet, Alert } from 'react-native';
+import React, { useState } from 'react';
+import { SafeAreaView, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 import HeaderNavigation from '../../components/HeaderNavigation';
@@ -14,7 +14,7 @@ const Login = () => {
   const [isValidUser, setIsValidUser] = useState(true);
   const [isValidPassword, setIsValidPassword] = useState(true);
 
-  const goToHome = () => {
+  const goToHome = async () => {
     if (username == null && password == null) {
       setIsValidUser(false)
       setIsValidPassword(false) 
@@ -25,7 +25,7 @@ const Login = () => {
     if (password == '' || password == null || password.length < 6) {
       return setIsValidPassword(false)
     } 
-    navigation.navigate('Home')  
+    navigation.navigate('Home')
   };
 
   const newValueInputUsername = (value) => {
@@ -46,8 +46,8 @@ const Login = () => {
     <SafeAreaView style={styles.container}>
       <HeaderNavigation title="Login" />
       <Input title="Username" value={username} newValue={(value) => newValueInputUsername(value)} placeholder="Your Username" name="user" />
-      {isValidUser ? null : <Text style={styles.msgError}>Username must be 4 characters long</Text>  }
-      <Input title="Password" value={password} newValue={(value) => newValueInputPassword(value)} placeholder="Your Password" name="lock" />
+      {isValidUser ? null : <Text style={styles.msgError}>Username must be 4 characters long</Text>}
+      <Input title="Password" value={password} newValue={(value) => newValueInputPassword(value)} placeholder="Your Password" name="lock" secureTextEntry={true} />
       {isValidPassword ? null : <Text style={styles.msgError}>Password must be 6 characters</Text>}
       <Text style={styles.text}>Don't have an account?</Text>
       <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('CreateAccount')}>
@@ -78,7 +78,8 @@ const styles = StyleSheet.create({
   },
   msgError: {
     margin: 10,
-    color: '#ff305e'
+    color: '#ff305e',
+    fontWeight: 'bold'
   }
 });
 
